@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="/static/favicon.ico" rel="icon">
+
+    </head>
+    <script>function CheckSpace(event){
+						if(event.which ==32)
+						{
+							event.preventDefault();
+						}
+						return false;
+						}
+	</script>
+    <link href="static/styles.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    {% if session.user_id %}<body style="background-color: {{ background }}; font-family: {{ fontfamily }}; font-size: {{ fontsize }};">
+    {% else %}<body style="background-color: darkseagreen; font-family: Georgia, serif; font-size: initial;">
+    {% endif %}
+        <table class="hometable">
+            <tr>
+                <td>
+
+                </td>
+                {% if session.user_id %}
+                <td>
+                    <a href="/" style="color: black; text-decoration: none;"><h1><b>{% if language == 'EN' %}{{ username }}'s Study Board{% else %}El panel de estudio de {{ username }}{% endif %}</b></h1></a>
+                </td>
+                <td>
+                    <div class="form-group" style="height: 50px;"><img src="static/images/{{ profilepic }}" width=70px></div>
+                    <div class="form-group" style="height: 10px;">{{ username }}</div>
+                    <div class="form-group" style="height: 10px;"><a href="/logout">{% if language == 'EN' %}Log Out{% else %}Salir{% endif %}</a></div>
+
+                </td>
+        		<td>
+        		    <div class="form-group" style="height: 35px;"><a class="btn btn-outline-dark" href="/settings">{% if language == 'EN' %}Settings{% else %}Configuración{% endif %}</a></div>
+        		    <div class="form-group"><a class="btn btn-outline-dark" href="/personalization">{% if language == 'EN' %}Personalization{% else %}Personalización{% endif %}</a></div>
+        		</td>
+        		{% else %}
+        		<td><h1><b>{% if language == 'EN' %}My Study Board{% else %}Mi panel de estudio{% endif %}</b></h1></td>
+        		<td>
+        		    <div class="form-group" style="height: 35px;"><a class="btn btn-outline-dark" href="/login">{% if language == 'EN' %}Log In{% else %}Iniciar Sesión{% endif %}</a></div>
+        		    <div class="form-group"><a class="btn btn-outline-dark" href="/register">{% if language == 'EN' %}Register{% else %}Registrarse{% endif %}</a></div>
+        		</td>
+        		{% endif %}
+            </tr>
+        </table>
+        <main class="container p-5">
+            {% block main %}{% endblock %}
+        </main>
+        <p style="text-align: center;">{% if language == 'EN' %}Developed by{% else %}Desarrollado por{% endif %} <a href="https://www.instagram.com/anasofilopresti/">Ana Sofia Lopresti</a> {% if language == 'EN' %}for{% else %}para{% endif %} CS50x</p>
+    </body>
+
+</html>

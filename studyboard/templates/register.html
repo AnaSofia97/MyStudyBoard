@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% if language == 'EN' %}Register{% else %}Registrarse{% endif %}
+{% endblock %}
+
+{% block main %}
+    <table class="settings">
+        <tr>
+            <td>
+                <form action="/register" method="post">
+                    <div class="form-group">
+                        {% if language == 'EN' %}<input style="width: 300px;" autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" onkeypress="CheckSpace(event)">
+                        {% else %}<input style="width: 300px;" autocomplete="off" autofocus class="form-control" name="username" placeholder="Nombre de usuario" type="text" onkeypress="CheckSpace(event)">{% endif %}
+                    </div>
+                    <div class="form-group">
+                        {% if language == 'EN' %}<input style="width: 300px;" class="form-control" name="password" placeholder="Password" type="password" onkeypress="CheckSpace(event)">
+                        {% else %}<input style="width: 300px;" class="form-control" name="password" placeholder="Contraseña" type="password" onkeypress="CheckSpace(event)">{% endif %}
+                    </div>
+                    <div class="form-group">
+                        {% if language == 'EN' %}<input style="width: 300px;" class="form-control" name="confirmation" placeholder="Password (again)" type="password" onkeypress="CheckSpace(event)">
+                        {% else %}<input style="width: 300px;" class="form-control" name="confirmation" placeholder="Contraseña (otra vez)" type="password" onkeypress="CheckSpace(event)">{% endif %}
+                    </div>
+                    <button class="btn btn-outline-dark" type="submit">{% if language == 'EN' %}Register{% else %}Registrarse{% endif %}</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

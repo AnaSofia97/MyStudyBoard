@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}
+	{% if language == 'EN' %}Settings{% else %}Configuración{% endif %}
+{% endblock %}
+{% block main %}
+<table class="settings">
+	<tr>
+		<td>
+			<h2>{% if language == 'EN' %}Settings{% else %}Configuración{% endif %}</h2>
+			<form action="/settings" method="post">
+				<div class="form-group">
+					{% if language == 'EN' %}<input style="width: 300px;" class="form-control" type="text" name="new_username" placeholder="New username" onkeypress="CheckSpace(event)">
+					{% else %}<input style="width: 300px;" class="form-control" type="text" name="new_username" placeholder="Nuevo nombre de usuario" onkeypress="CheckSpace(event)">{% endif %}
+
+				</div>
+				<div class="form-group">
+					<button style="width: 300px;" class="form-control" type="submit" name="change_username" value="true">{% if language == 'EN' %}Change username{% else %}Cambiar nombre de usuario{% endif %}</button>
+				</div>
+				<div class="form-group">
+					{% if language == 'EN' %}<input style="width: 300px;" class="form-control" type="text" name="current_password" placeholder="Current password" onkeypress="CheckSpace(event)">
+					{% else %}<input style="width: 300px;" class="form-control" type="text" name="current_password" placeholder="Contraseña actual" onkeypress="CheckSpace(event)">{% endif %}
+				</div>
+				<div class="form-group">
+					{% if language == 'EN' %}<input style="width: 300px;" class="form-control" type="text" name="new_password" placeholder="New password" onkeypress="CheckSpace(event)">
+					{% else %}<input style="width: 300px;" class="form-control" type="text" name="new_password" placeholder="Contraseña nueva" onkeypress="CheckSpace(event)">{% endif %}
+				</div>
+				<div class="form-group">
+					<button style="width: 300px;" class="form-control" type="submit" name="change_password" value="true">{% if language == 'EN' %}Change password{% else %}Cambiar contraseña{% endif %}</button>
+				</div>
+				<div class="form-group">
+					<button style="width: 300px;" class="form-control" type="submit" name="delete_account" value="true">{% if language == 'EN' %}Delete account{% else %}Eliminar cuenta{% endif %}</button>
+				</div>
+				{% if language == 'EN' %}Language{% else %}Idioma{% endif %}: <button class="btn btn-outline-dark" name="language" value="SP">SP</button> <button class="btn btn-outline-dark" name="language" value="EN">EN</button></form>
+			</form>
+		</td>
+	</tr>
+</table>
+{% endblock %}

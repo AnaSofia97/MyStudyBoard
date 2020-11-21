@@ -1,0 +1,43 @@
+.hometable
+{
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid black;
+    font-size: medium;
+}
+
+td
+{
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+}
+.settingstd
+{
+    vertical-align: top;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+}
+
+.settings
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.pic
+{
+    background-color: rgba(255, 255, 255, 0.0);
+    border-color: rgba(255, 255, 255, 0.0);
+}
+.indextd
+{
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    overflow: hidden;
+}

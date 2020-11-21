@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% if language == 'EN' %}Home{% else %}Inicio{% endif %}
+{% block main %}
+        <h3>{% if language == 'EN' %}Google search{% else %}Búsqueda de Google{% endif %}</h3>
+        <script async src="https://cse.google.com/cse.js?cx=211a9778ec531a46e"></script>
+        <div class="gcse-searchbox"></div>
+        <table style="table-layout: fixed;">
+                <col width="250px" />
+                <tr>
+                        <td class="indextd" wrap="hard">
+                        <h5 class="form-group"><b>{% if language == 'EN' %}Tasks{% else %}Tareas{% endif %}</b></h5>
+                        <div class="text-wrap" class="form-group"style="height:300px; width:257px; text-align: left; padding-left: 5px; border:1px solid black; overflow-x: hidden; overflow-y:auto; overflow-x-axis:" wrap="hard">
+                                {% for row in tasks %}
+                                        <li>{{ row['task'] }}</li>
+                                {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                        <form action="/" method="post">
+                                {% if language == 'EN' %}<input class="form-control" type="text" placeholder="Add/delete task" style="width: 257px;" name="task">{% else %}<input class="form-control" type="text" placeholder="Agregar/borrar tarea" style="width: 257px;" name="task">{% endif %}
+                                <br>
+                                {% if language == 'EN' %}<input type="submit" style="width: 60px; font-size_ small;" name="button" value="Add">{% else %}<input type="submit" style="width: 75px; font-size_ small;" name="button" value="Agregar">{% endif %}
+                                {% if language == 'EN' %}<input type="submit" style="width: 90; font-size_ small;" name="button" value="Delete">{% else %}<input type="submit" style="width: 90; font-size_ small;" name="button" value="Borrar">{% endif %}
+                                {% if language == 'EN' %}<input type="submit" style="width: 100px; font-size_ small;" name="button" value="Delete all">{% else %}<input type="submit" style="width: 100px; font-size_ small;" name="button" value="Borrar todo">{% endif %}
+                        </form>
+                        </div>
+                        <div class="text-wrap" style="width:240px; text-align: left;">
+                                {% if language == 'EN' %}In order to delete a task, copy the name into the field and click "Delete".{% else %}Para eliminar una tarea, copiala y pegala en el campo de arriba y hacé click en "Borrar".{% endif %}
+                        </div>
+                        </td>
+                        <td valign = top class="indextd">
+                                <iframe width="360" height="215" src="https://www.youtube.com/embed/f02mOEt11OQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <br>{% if language == 'EN' %}Search results:{% else %}Resultados de búsqueda:{% endif %}</sq><br>
+                                <div class="text-wrap" style="height:340px; width:360px; border:1px solid black; overflow-x: hidden;" wrap="hard"><div class="gcse-searchresults"></div></div>
+
+                        </td>
+                        <td class="indextd" valign = top class="indextd" width="360">
+                                {% if language == 'EN' %}<iframe src="https://calendar.google.com/calendar/embed?height=591&amp;wkst=2&amp;bgcolor=%23F6BF26&amp;ctz=America%2FArgentina%2FSalta&amp;title=Calendar&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;hl=en" style="border-width:0" width="360" height="591" frameborder="0" scrolling="no"></iframe>
+                                {% else %}<iframe src="https://calendar.google.com/calendar/embed?height=591&amp;wkst=2&amp;bgcolor=%23F6BF26&amp;ctz=America%2FArgentina%2FSalta&amp;title=Calendario&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;hl=es_419" style="border-width:0" width="360" height="591" frameborder="0" scrolling="no"></iframe>{% endif %}
+                        </td>
+
+                        <td valign = top class="indextd">
+                                <script>
+                                function calcNumbers(result){
+                                        form.displayResult.value=form.displayResult.value+result;
+                                }
+                                </script>
+                                <div class="container">
+                                        <form name="form" onsubmit="return false;">
+                                        <div class="display">
+                                                <input type="text" placeholder="0" id="displayResult" name="displayResult" style="width: 100px; padding-left: 1px; float: left"/>
+                                                <script>
+                                                        document.getElementById("displayResult")
+                                                        .addEventListener("keyup", function(event) {
+                                                        event.preventDefault();
+                                                        if (event.keyCode === 13) {
+                                                                document.getElementById("equals").click();
+                                                        }
+                                                        });
+                                                </script>
+                                        </div>
+
+                                        <div class="buttons">
+                                                <div class="row" style="padding-left: 12px; padding-top: 10px; float: center;">
+                                                        <input type="button" name="b7" value="7" onClick="calcNumbers(b7.value)">
+                                                        <input type="button" name="b8" value="8" onClick="calcNumbers(b8.value)">
+                                                        <input type="button" name="b9" value="9" onClick="calcNumbers(b9.value)">
+                                                        <input type="button" name="addb" value="+" onClick="calcNumbers(addb.value)">
+                                                </div>
+
+                                                <div class="row" style="padding-left: 12px; padding-top: 10px; float: center;">
+                                                        <input type="button" name="b4" value="4" onClick="calcNumbers(b4.value)">
+                                                        <input type="button" name="b5" value="5" onClick="calcNumbers(b5.value)">
+                                                        <input type="button" name="b6" value="6" onClick="calcNumbers(b6.value)">
+                                                        <input type="button" name="subb" value="-" onClick="calcNumbers(subb.value)">
+                                                </div>
+
+                                                <div class="row" style="padding-left: 12px; padding-top: 10px; float: center;">
+                                                        <input type="button" name="b1" value="1" onClick="calcNumbers(b1.value)">
+                                                        <input type="button" name="b2" value="2" onClick="calcNumbers(b2.value)">
+                                                        <input type="button" name="b3" value="3" onClick="calcNumbers(b3.value)">
+                                                        <input type="button" name="mulb" value="*" onClick="calcNumbers(mulb.value)">
+                                                </div>
+
+                                                <div class="row" style="padding-left: 17px; padding-top: 10px; float: center;">
+                                                        <input type="button" name="b0" value="0" onClick="calcNumbers(b0.value)">
+                                                        <input type="button" name="potb" value="." onClick="calcNumbers(potb.value)">
+                                                        <input type="button" name="divb" value="/" onClick="calcNumbers(divb.value)">
+                                                        <input type="button" id="equals" class="red" value="=" onClick="displayResult.value=eval(displayResult.value)">
+                                                </div>
+                                        </div>
+                                        </form>
+                                </div>
+                                <br><br><a href="https://translate.google.com/"><img src="static/images/translate.png" height=50></a>
+                                <br><br><a href="https://www.wikipedia.org/"><img src="static/images/wikipedia.png" height=50></a>
+                                <br><br><a href="https://www.ted.com/"><img src="static/images/ted.png" height=50></a>
+                                <br><br><a href="https://www.gutenberg.org/"><img src="static/images/gutenberg.png" height=50></a>
+                        </td>
+                </tr>
+        </table>
+{% endblock %}

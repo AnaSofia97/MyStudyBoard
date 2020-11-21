@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block title %}
+	{% if language == 'EN' %}Personalization{% else %}Personalización{% endif %}
+{% endblock %}
+{% block main %}
+<h2 style="text-align: center;">{% if language == 'EN' %}Personalization{% else %}Personalización{% endif %}</h2>
+<table class="settings">
+	<tr>
+		<td class="settingstd">
+			<div class="form-group">
+				{% if language == 'EN' %}Background colour{% else %}Color de fondo{% endif %}
+			</div>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="green" id="green">{% if language == 'EN' %}Green{% else %}Verde{% endif %}</button>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="yellow" id="yellow">{% if language == 'EN' %}Yellow{% else %}Amarillo{% endif %}</button>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="blue" id="blue">{% if language == 'EN' %}Blue{% else %}Azul{% endif %}</button>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+			<div class="form-group">
+				<button class="form-control" name="button" value="pink" id="pink">{% if language == 'EN' %}Pink{% else %}Rosa{% endif %}</button>
+			</div>
+			</form>
+		</td>
+		<td class="settingstd">
+			<div class="form-group">
+				{% if language == 'EN' %}Font size{% else %}Tamaño de fuente{% endif %}
+			</div>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="small" id="small">{% if language == 'EN' %}Small{% else %}Pequeña{% endif %}</option>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="medium" id="medium">{% if language == 'EN' %}Medium{% else %}Mediana{% endif %}</option>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="large" id="large">{% if language == 'EN' %}Large{% else %}Grande{% endif %}</option>
+				</div>
+			</form>
+		</td>
+		<td class="settingstd">
+			<div class="form-group">
+				{% if language == 'EN' %}Font type{% else %}Tipo de fuente{% endif %}
+			</div>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="arial" id="arial">Arial</option>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="georgia" id="georgia">Georgia</option>
+				</div>
+			</form>
+			<form action="/personalization" method="post">
+				<div class="form-group">
+					<button class="form-control" name="button" value="monospace" id="monospace">Monospace</option>
+				</div>
+			</form>
+		</td>
+		<td style="padding-right: 10px; padding-left: 10px;">
+			<div class="form-group">
+				<br>
+			</div>
+			<div class="form-group">
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="1"><img src="static/images/1.png" width=70px></button>
+			</form>
+			<br>
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="4"><img src="static/images/4.png" width=70px></button>
+			</form>
+			<br>
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="7"><img src="static/images/7.jpg" width=70px></button>
+			</form>
+			<br>
+			</div>
+		</td>
+		<td style="padding-right: 10px; padding-left: 10px;">
+			<div class="form-group">
+				Avatar
+			</div>
+			<div class="form-group">
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="2"><img src="static/images/2.png" width=70px></button>
+			</form>
+			<br>
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="5"><img src="static/images/5.png" width=70px></button>
+			</form>
+			<br>
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="8"><img src="static/images/8.jpg" width=70px></button>
+			</form>
+			<br>
+			</div>
+		</td>
+		<td style="padding-right: 10px; padding-left: 10px;">
+			<div class="form-group">
+				<br>
+			</div>
+			<div class="form-group">
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="3"><img src="static/images/3.jpg" width=70px></button>
+			</form>
+			<br>
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="6"><img src="static/images/6.jpg" width=70px></button>
+			</form>
+			<br>
+			<form action="/personalization" method="post">
+				<button class="pic" name="button" value="9"><img src="static/images/9.png" width=70px></button>
+			</form>
+			<br>
+			</div>
+		</td>
+	</tr>
+</table>
+{% endblock %}
